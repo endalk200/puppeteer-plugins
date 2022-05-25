@@ -1,4 +1,26 @@
 {
     "name": "puppeteer-plugins",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "license": "MIT",
+    "scripts": {},
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/endalk200/puppeteer-plugins.git",
+        "directory": "packages/puppeteer-plugins"
+    },
+    "keywords": [
+        "puppeteer",
+        "puppeteer-plugins",
+        "puppeteer-utils",
+        "puppeteer-helpers",
+        "utils",
+        "helpers"
+    ],
+    "author": "endalk200 <eb808826@gmail.com>",
+    "description": "puppeteer plugins is a collection of helper functions and plugins for puppeteer. The package contains plugins that extend puppeteer functionality. ",
+    "bugs": {
+        "url": "https://github.com/endalk200/puppeteer-plugins/issues"
+    },
+    "homepage": "https://github.com/endalk200/puppeteer-plugins#readme"
 }

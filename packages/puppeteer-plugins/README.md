@@ -1,11 +1,15 @@
-# puppeteer-plugins
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) [![react hooks test CI](https://github.com/endalk200/puppeteer-plugins/actions/workflows/test-ci.yml/badge.svg)](https://github.com/endalk200/puppeteer-plugins/actions/workflows/test-ci.yml)
 
-This library was generated with [Nx](https://nx.dev).
+# Puppeteer Plugins
 
-## Running unit tests
+puppeteer plugins is a collection of helper functions and plugins for puppeteer. The package contains plugins that extend puppeteer functionality. It will make working with sites using puppeteer easier.
 
-Run `nx test puppeteer-plugins` to execute the unit tests via [Jest](https://jestjs.io).
+## Installation
 
-## Running lint
+```bash
+npm install puppeteer-plugins
 
-Run `nx lint puppeteer-plugins` to execute the lint via [ESLint](https://eslint.org/).
+# or
+
+yarn add puppeteer-plugins
+```
