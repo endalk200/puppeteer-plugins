@@ -1,23 +1,23 @@
 {
-  "extends": "@nrwl/workspace/presets/core.json",
-  "npmScope": "puppeteer-plugins",
-  "affected": {
-    "defaultBase": "main"
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
-      }
+    "extends": "@nrwl/workspace/presets/core.json",
+    "npmScope": "puppeteer-plugins",
+    "affected": {
+        "defaultBase": "main"
+    },
+    "cli": {
+        "defaultCollection": "@nrwl/workspace"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "nx/tasks-runners/default",
+            "options": {
+                "cacheableOperations": [
+                    "build",
+                    "lint",
+                    "test",
+                    "e2e"
+                ]
+            }
+        }
     }
-  }
 }
