@@ -2,10 +2,32 @@
     "name": "puppeteer-plugins",
     "version": "0.0.0",
     "license": "MIT",
-    "scripts": {
-        "test": "nx run puppeteer-plugins:test"
+    "private": false,
+    "keywords": [
+        "puppeteer",
+        "puppeteer-plugins",
+        "puppeteer-utils",
+        "puppeteer-helpers",
+        "utils",
+        "helpers"
+    ],
+    "homepage": "https://github.com/endalk200/puppeteer-plugins#readme",
+    "author": "endalk200",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/endalk200/puppeteer-plugins.git"
     },
-    "private": true,
+    "bugs": {
+        "url": "https://github.com/endalk200/puppeteer-plugins/issues"
+    },
+    "scripts": {
+        "format:check": "prettier --check .",
+        "format:write": "prettier --write .",
+        "test": "nx run puppeteer-plugins:test",
+        "lint": "nx run puppeteer-plugins:lint",
+        "build": "nx run puppeteer-plugins:build",
+        "publish": "nx publish puppeteer-plugins"
+    },
     "devDependencies": {
         "@nrwl/cli": "13.10.5",
         "@nrwl/eslint-plugin-nx": "14.1.9",
@@ -20,7 +42,8 @@
         "eslint": "~8.12.0",
         "eslint-config-prettier": "8.1.0",
         "jest": "27.5.1",
-        "nx": "13.10.5",
+        "nodemon": "^2.0.16",
+        "nx": "^14.1.9",
         "prettier": "^2.5.1",
         "ts-jest": "27.1.4",
         "ts-node": "9.1.1",

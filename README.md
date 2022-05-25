@@ -1,4 +1,4 @@
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs) [![react hooks test CI](https://github.com/endalk200/puppeteer-plugins/actions/workflows/test-ci.yml/badge.svg)](https://github.com/endalk200/puppeteer-plugins/actions/workflows/test-ci.yml)
 
 # Puppeteer Plugins
 
