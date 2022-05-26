@@ -5,14 +5,20 @@
     "targets": {
         "lint": {
             "executor": "@nrwl/linter:eslint",
-            "outputs": ["{options.outputFile}"],
+            "outputs": [
+                "{options.outputFile}"
+            ],
             "options": {
-                "lintFilePatterns": ["packages/puppeteer-plugins/**/*.ts"]
+                "lintFilePatterns": [
+                    "packages/puppeteer-plugins/**/*.ts"
+                ]
             }
         },
         "test": {
             "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/packages/puppeteer-plugins"],
+            "outputs": [
+                "coverage/packages/puppeteer-plugins"
+            ],
             "options": {
                 "jestConfig": "packages/puppeteer-plugins/jest.config.ts",
                 "passWithNoTests": true
@@ -20,13 +26,28 @@
         },
         "build": {
             "executor": "@nrwl/js:tsc",
-            "outputs": ["{options.outputPath}"],
+            "outputs": [
+                "{options.outputPath}"
+            ],
             "options": {
                 "outputPath": "dist/packages/puppeteer-plugins",
                 "tsConfig": "packages/puppeteer-plugins/tsconfig.lib.json",
                 "packageJson": "packages/puppeteer-plugins/package.json",
                 "main": "packages/puppeteer-plugins/src/index.ts",
-                "assets": ["packages/puppeteer-plugins/*.md"]
+                "assets": [
+                    "packages/puppeteer-plugins/*.md"
+                ]
+            }
+        },
+        "publish": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "commands": [
+                    {
+                        "command": "npm publish"
+                    }
+                ],
+                "cwd": "dist/packages/puppeteer-plugins"
             }
         }
     },
