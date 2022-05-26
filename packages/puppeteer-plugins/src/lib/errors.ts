@@ -42,3 +42,17 @@ export class ElementNotFoundError extends Error {
         return this.message;
     }
 }
+
+export class UnsupportedHTMLTag extends Error {
+    constructor(tag: string) {
+        super(`Unsupported HTML tag: ${tag}`);
+    }
+
+    getSource() {
+        return `UnsupportedHTMLTag thrown from puppeteer-plugins`;
+    }
+
+    getMessage() {
+        return this.message;
+    }
+}

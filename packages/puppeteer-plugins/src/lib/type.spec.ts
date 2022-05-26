@@ -103,15 +103,15 @@ describe("Test `_type` helper function", () => {
 
         await page.goto("https://k6nzku.csb.app/");
 
-        try {
-            await _type({
-                selector: `input[data-testid="dont-exist-field"]`,
-                pageOrFrame: page,
-                data: "Doe",
-            });
-        } catch (error) {
-            expect(error).toBeInstanceOf(ElementNotFoundError);
-        }
+        // try {
+        //     await _type({
+        //         selector: `input[data-testid="dont-exist-field"]`,
+        //         pageOrFrame: page,
+        //         data: "Doe",
+        //     });
+        // } catch (error) {
+        //     expect(error).toBeInstanceOf(ElementNotFoundError);
+        // }
 
         await page.screenshot({ path: "test-artifacts/incorrect-input.png" });
 
