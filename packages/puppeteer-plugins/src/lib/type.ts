@@ -1,10 +1,12 @@
-import * as puppeteer from "puppeteer";
+import { TimeoutError } from "puppeteer";
+import type { Page, Frame } from "puppeteer";
+
 import { ElementNotFoundError, InputValidationError } from "./errors";
 import { runIfFn } from "./utils";
 
-type TypeProps = {
+export type TypeArgs = {
     /** The page or frame instance to reference */
-    pageOrFrame: puppeteer.Page | puppeteer.Frame;
+    pageOrFrame: Page | Frame;
 
     /** The selector to use to find the element */
     selector: string;
@@ -17,6 +19,9 @@ type TypeProps = {
 
     /** The delay between keystrokes in milliseconds. Defaults to `0` */
     delay?: number;
+
+    /** The timeout in milliseconds. Defaults to `5000` */
+    timeout?: number;
 };
 
 /**
@@ -25,30 +30,34 @@ type TypeProps = {
  *
  * @param args
  */
-export const _type = async (args: TypeProps) => {
-    const { pageOrFrame, selector, expectedValue, data, delay } = args;
+export const _type = async (args: TypeArgs) => {
+    const { expectedValue, pageOrFrame, delay, timeout } = args;
+
+    const __timeout = timeout ? timeout : 5000;
+    const __delay = delay ? delay : 0;
+
+    const __expectedValue: string | (() => string) = expectedValue
+        ? expectedValue
+        : args.data;
 
     try {
-        await pageOrFrame.waitForSelector(selector, { timeout: 5000 });
+        await pageOrFrame.waitForSelector(args.selector, { timeout: __timeout });
     } catch (error) {
-        if (error instanceof puppeteer.errors.TimeoutError) {
-            throw new ElementNotFoundError(selector);
+        if (error instanceof TimeoutError) {
+            throw new ElementNotFoundError(args.selector);
         }
 
-        throw new ElementNotFoundError(selector);
+        throw new ElementNotFoundError(args.selector);
     }
 
-    await pageOrFrame.type(selector, runIfFn(data), { delay: delay });
+    await pageOrFrame.type(args.selector, runIfFn(args.data), { delay: __delay });
 
     const actual_value: string = await pageOrFrame.$eval(
-        selector,
+        args.selector,
         (element: HTMLInputElement) => element.value
     );
 
-    if (actual_value !== (expectedValue ? expectedValue : data)) {
-        throw new InputValidationError(
-            () => (expectedValue ? `${runIfFn(expectedValue)}` : `${runIfFn(data)}`),
-            actual_value
-        );
+    if (actual_value !== runIfFn(__expectedValue)) {
+        throw new InputValidationError(runIfFn(__expectedValue), actual_value);
     }
 };
