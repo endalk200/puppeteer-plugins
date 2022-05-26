@@ -13,3 +13,9 @@ npm install puppeteer-plugins
 
 yarn add puppeteer-plugins
 ```
+
+## API
+
+1. `_type`: This function will validate if the element is present in the DOM and type in the passed value
+2. `_select`: This function wraps puppeteers `select` function. This function can work using both the value and innerText of the options.
+3. `_setValue`: This helper function will handle all HTML input types. It will manually set the value of built in type API fails.
