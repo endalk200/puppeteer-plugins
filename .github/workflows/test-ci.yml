@@ -27,6 +27,6 @@ jobs:
       - name: Build
         run: npm run build
       - name: Lint
-        run: npm run Lint
+        run: npm run lint
       - name: Run hooks unit tests
         run: npm run test

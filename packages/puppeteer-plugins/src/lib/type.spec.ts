@@ -1,5 +1,5 @@
 import * as puppeteer from "puppeteer";
-import { ElementNotFoundError, InputValidationError } from "./errors";
+import { InputValidationError } from "./errors";
 
 import { _type } from "./type";
 

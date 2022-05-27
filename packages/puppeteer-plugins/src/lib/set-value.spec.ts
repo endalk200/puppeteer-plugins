@@ -1,6 +1,5 @@
 import * as puppeteer from "puppeteer";
 
-import { ElementNotFoundError } from "./errors";
 import { _setValue } from "./set-value";
 
 describe("Test `_type` helper function", () => {

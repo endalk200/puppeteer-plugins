@@ -24,18 +24,14 @@ export type SelectArgs = {
      * */
     expectedValue?: string | (() => string);
 
-    /** The delay between keystrokes in milliseconds. Defaults to `0` */
-    delay?: number;
-
     /** The timeout in milliseconds. Defaults to `5000` */
     timeout?: number;
 };
 
 export const _select = async (args: SelectArgs) => {
-    const { expectedValue, pageOrFrame, delay, text, timeout } = args;
+    const { expectedValue, pageOrFrame, text, timeout } = args;
 
     const __timeout = timeout ? timeout : 5000;
-    const __delay = delay ? delay : 0;
 
     const __expectedValue: string | (() => string) = expectedValue
         ? expectedValue
